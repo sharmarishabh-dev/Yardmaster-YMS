@@ -1,0 +1,182 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 10px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-hazard: var(--hazard);
+  --color-hazard-foreground: var(--hazard-foreground);
+  --color-steel: var(--steel);
+  --color-concrete: var(--concrete);
+}
+
+:root {
+  /* Bold industrial editorial — high contrast black/white + safety orange */
+  --radius: 4px;
+
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.13 0 0);
+  --paper: oklch(0.97 0.005 80);
+  --ink: oklch(0.10 0 0);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.13 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.13 0 0);
+
+  --primary: oklch(0.13 0 0);
+  --primary-foreground: oklch(0.99 0 0);
+
+  --secondary: oklch(0.95 0.005 80);
+  --secondary-foreground: oklch(0.13 0 0);
+
+  --muted: oklch(0.95 0.005 80);
+  --muted-foreground: oklch(0.42 0.01 60);
+
+  --accent: oklch(0.70 0.20 45); /* safety orange */
+  --accent-foreground: oklch(0.10 0 0);
+
+  --hazard: oklch(0.70 0.20 45);
+  --hazard-foreground: oklch(0.10 0 0);
+
+  --steel: oklch(0.55 0.01 250);
+  --concrete: oklch(0.88 0.005 80);
+
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.13 0 0);
+  --input: oklch(0.85 0.005 80);
+  --ring: oklch(0.70 0.20 45);
+}
+
+.dark {
+  --background: oklch(0.10 0 0);
+  --foreground: oklch(0.98 0 0);
+  --paper: oklch(0.15 0 0);
+  --ink: oklch(0.98 0 0);
+  --card: oklch(0.13 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.13 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.98 0 0);
+  --primary-foreground: oklch(0.10 0 0);
+  --secondary: oklch(0.18 0 0);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.18 0 0);
+  --muted-foreground: oklch(0.65 0.01 60);
+  --accent: oklch(0.72 0.21 45);
+  --accent-foreground: oklch(0.10 0 0);
+  --border: oklch(0.98 0 0);
+  --input: oklch(0.25 0 0);
+  --ring: oklch(0.72 0.21 45);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .text-hazard { color: var(--color-hazard); }
+  .bg-hazard { background-color: var(--color-hazard); }
+  .bg-ink { background-color: var(--color-ink); }
+  .text-ink { color: var(--color-ink); }
+  .bg-paper { background-color: var(--color-paper); }
+  .border-ink { border-color: var(--color-ink); }
+
+  /* Hazard chevron stripe */
+  .hazard-stripe {
+    background-image: repeating-linear-gradient(
+      135deg,
+      var(--color-hazard) 0 16px,
+      var(--color-ink) 16px 32px
+    );
+  }
+
+  /* Architectural grid */
+  .grid-paper {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--color-ink) 6%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--color-ink) 6%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .ticker-mask {
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-ticker {
+    animation: ticker 40s linear infinite;
+  }
+
+  @keyframes scan {
+    0% { transform: translateY(-100%); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(100%); opacity: 0; }
+  }
+  .animate-scan {
+    animation: scan 3s ease-in-out infinite;
+  }
+}
