@@ -96,8 +96,8 @@ function DashboardLayout() {
       <header className="sticky top-0 z-50 border-b-2 border-ink bg-background">
         <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-6 px-6 py-3">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="YardMaster Logo" className="h-6 w-6 object-contain" />
-            <span className="font-display text-lg tracking-tight">YARDMASTER</span>
+            <img src="/logo.png" alt="YardMaster Logo" style={{height: '36px', width: 'auto', display: 'block', flexShrink: 0}} />
+            <span className="font-display text-lg tracking-tight uppercase">YARDMASTER</span>
           </Link>
           <nav className="hidden items-center gap-1 md:flex">
             {nav.map((n) => {

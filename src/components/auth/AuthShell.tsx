@@ -17,8 +17,8 @@ export function AuthShell({
       <header className="border-b-2 border-ink">
         <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="YardMaster Logo" className="h-7 w-7 object-contain" />
-            <span className="font-display text-xl tracking-tight">YARDMASTER</span>
+            <img src="/logo.png" alt="YardMaster Logo" style={{height: '40px', width: 'auto', display: 'block', flexShrink: 0}} />
+            <span className="font-display text-xl tracking-tight uppercase">YARDMASTER</span>
           </Link>
           <Link
             to="/"

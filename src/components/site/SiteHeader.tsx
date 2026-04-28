@@ -5,8 +5,8 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b-2 border-ink bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center gap-3">
-          <img src="/logo.png" alt="YardMaster Logo" className="h-7 w-7 object-contain" />
-          <span className="font-display text-xl tracking-tight">YARDMASTER</span>
+          <img src="/logo.png" alt="YardMaster Logo" style={{height: '40px', width: 'auto', display: 'block', flexShrink: 0}} />
+          <span className="font-display text-xl tracking-tight uppercase">YARDMASTER</span>
         </Link>
         <nav className="hidden items-center gap-8 font-mono text-xs uppercase tracking-widest md:flex">
           <a href="#features" className="hover:text-hazard">Features</a>
